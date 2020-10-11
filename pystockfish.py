@@ -212,6 +212,10 @@ class Engine(subprocess.Popen):
                         'ponder': split_text[3],
                         'info': last_line
                         }
+                if 'multipv' not in split_text:
+                    continue
+                if split_text[split_text.index('multipv') + 1] != '1':
+                    continue
             last_line = text
 
     def parse_info(self, info):
